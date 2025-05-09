@@ -10,6 +10,7 @@ The model uses PyTorch and Hugging Face Transformers, and it is structured to be
 
 ## Project Structure
 
+.
 ├── main.py # Entry point for training and evaluation
 ├── task1.py # Basic sentence transformer encoder
 ├── task2.py # Multi-task learning architecture
@@ -20,6 +21,7 @@ The model uses PyTorch and Hugging Face Transformers, and it is structured to be
 ├── Dockerfile # Container setup
 └── README.md # Project instructions
 
+---
 
 ### Build the Docker image:
 
@@ -27,6 +29,16 @@ The model uses PyTorch and Hugging Face Transformers, and it is structured to be
 docker build -t ml-apprentice-app .
 
 dokcer run --rm ml-apprentice-app
+```
 
 ### Run it manually:
-fd
+
+```bash
+python3 -m venv venv
+
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+python main.py
+```
