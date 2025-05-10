@@ -36,6 +36,7 @@ model = SentenceTransformer()
 sentences = ["I love machine learning.", "Transformers are powerful."]
 embeddings = model.encode(sentences)
 
+print("Sentences:\n", sentences)
 print("Embeddings:\n", embeddings)
 
 """

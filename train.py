@@ -27,6 +27,11 @@ def train(model, dataset, batch_size):
     )
     model.train()
 
+    """
+    We loop through all batches in the data for both task A and task B. The shared transformer encoder is applied for each task,
+    followed by task-specific heads. For metrics cross-entropy is computed between logits and labels. Accuracy is calculated as the
+    fraction of correct predictions. We also balance task influence by combining loss equally.
+    """
     for step, (batch_a, batch_b) in enumerate(zip(loader_a, loader_b)):
         # Task A
         logits_a = model(batch_a["input_ids"], batch_a["attention_mask"], task="A")

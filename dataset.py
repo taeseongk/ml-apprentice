@@ -2,6 +2,10 @@ from datasets import load_dataset
 import torch
 from torch.utils.data import Dataset
 
+"""
+We create a simple wrapper to pass into DataLoader
+"""
+
 
 class SimpleDataset(Dataset):
     def __init__(self, input_ids, attention_mask, labels):
@@ -22,6 +26,12 @@ class SimpleDataset(Dataset):
 
 def load(dataset_a, dataset_b, split):
     return load_dataset(dataset_a, split=split), load_dataset(dataset_b, split=split)
+
+
+"""
+This function creates two dictionaries of tokenized tensors for Task A and B, each capped at
+max_samples
+"""
 
 
 def load_combined_dataset(model, dataset_a, dataset_b, max_samples=1000):
